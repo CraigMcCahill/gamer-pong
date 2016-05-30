@@ -38,7 +38,7 @@ void updateBat() {
        bat.pos++;
     }
     else if(gamer.isHeld(LEFT) && bat.pos > 0) {
-       bat.pos--;   
+       bat.pos--;
     }
 }
 
@@ -49,27 +49,26 @@ void drawBat() {
 }
 
 bool detectCollision() {
-    return (ball.y == (displayHeight - 2) 
+    return (ball.y == (displayHeight - 2)
         && (ball.x + ball.vx) >= bat.pos
-        && (ball.x + ball.vx) < (bat.pos + bat.siz) 
+        && (ball.x + ball.vx) < (bat.pos + bat.siz)
     );
 }
 
 void updateBall() {
-     if((ball.x + ball.vx) < 0 || ((ball.x + ball.vx) > displayWidth - 1)) {
-         ball.vx = -(ball.vx);
-     }  
-     
-     if((ball.y + ball.vy) < 0 || detectCollision()) {
-         ball.vy = -(ball.vy);
-     } 
-     else if((ball.y + ball.vy) > displayHeight - 1) {
-         gameOver(); 
-     }  
-    
-     ball.x += ball.vx;
-     ball.y += ball.vy;
-   
+    if((ball.x + ball.vx) < 0 || ((ball.x + ball.vx) > displayWidth - 1)) {
+     ball.vx = -(ball.vx);
+    }
+
+    if((ball.y + ball.vy) < 0 || detectCollision()) {
+     ball.vy = -(ball.vy);
+    }
+    else if((ball.y + ball.vy) > displayHeight - 1) {
+     gameOver();
+    }
+
+    ball.x += ball.vx;
+    ball.y += ball.vy;
 }
 
 void drawBall() {
