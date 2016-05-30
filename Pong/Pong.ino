@@ -20,8 +20,7 @@ int gameSpeed = 150;
 
 void setup() {
     gamer.begin();
-    displayWidth = sizeof(gamer.display[0]) / sizeof(byte);
-    displayHeight = sizeof(gamer.display) / (sizeof(byte) * displayWidth);    
+    displayWidth =  displayHeight = 8;
 }
 
 void loop() {
