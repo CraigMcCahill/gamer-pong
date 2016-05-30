@@ -57,14 +57,14 @@ bool detectCollision() {
 
 void updateBall() {
     if((ball.x + ball.vx) < 0 || ((ball.x + ball.vx) > displayWidth - 1)) {
-     ball.vx = -(ball.vx);
+        ball.vx = -(ball.vx);
     }
 
     if((ball.y + ball.vy) < 0 || detectCollision()) {
-     ball.vy = -(ball.vy);
+        ball.vy = -(ball.vy);
     }
     else if((ball.y + ball.vy) > displayHeight - 1) {
-     gameOver();
+        gameOver();
     }
 
     ball.x += ball.vx;
@@ -79,4 +79,3 @@ void gameOver() {
     long startingPos = random(0, displayWidth - 1);
     ball = { startingPos, -1, 1, 1 };
 }
-
