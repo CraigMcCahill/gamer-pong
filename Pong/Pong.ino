@@ -49,34 +49,35 @@ void drawBat() {
 }
 
 bool detectCollision() {
-  return (ball.y == (displayHeight - 2) 
-      && (ball.x + ball.vx) >= bat.pos
-      && (ball.x + ball.vx) < (bat.pos + bat.siz) 
-  );
+    return (ball.y == (displayHeight - 2) 
+        && (ball.x + ball.vx) >= bat.pos
+        && (ball.x + ball.vx) < (bat.pos + bat.siz) 
+    );
 }
 
 void updateBall() {
-   if((ball.x + ball.vx) < 0 || ((ball.x + ball.vx) > displayWidth - 1)) {
-       ball.vx = -(ball.vx);
-   }  
-   
-   if((ball.y + ball.vy) < 0 || detectCollision()) {
-       ball.vy = -(ball.vy);
-   } 
-   else if((ball.y + ball.vy) > displayHeight - 1) {
-       gameOver(); 
-   }  
-  
-   ball.x += ball.vx;
-   ball.y += ball.vy;
+     if((ball.x + ball.vx) < 0 || ((ball.x + ball.vx) > displayWidth - 1)) {
+         ball.vx = -(ball.vx);
+     }  
+     
+     if((ball.y + ball.vy) < 0 || detectCollision()) {
+         ball.vy = -(ball.vy);
+     } 
+     else if((ball.y + ball.vy) > displayHeight - 1) {
+         gameOver(); 
+     }  
+    
+     ball.x += ball.vx;
+     ball.y += ball.vy;
    
 }
 
 void drawBall() {
-  gamer.display[ball.x][ball.y] = 1;
+    gamer.display[ball.x][ball.y] = 1;
 }
 
 void gameOver() { 
-    ball = { 3, -1, 1, 1 };   
+    long startingPos = random(0, displayWidth - 1);
+    ball = { startingPos, -1, 1, 1 };
 }
 
