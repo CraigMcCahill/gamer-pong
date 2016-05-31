@@ -76,6 +76,6 @@ void drawBall() {
 }
 
 void gameOver() { 
-    long startingPos = random(0, displayWidth - 1);
+    int startingPos = (int) random(0, displayWidth - 1);
     ball = { startingPos, -1, 1, 1 };
 }
